@@ -60,7 +60,10 @@ GNL_SRC = \
 GNL = $(addprefix $(GNL_DIR), $(GNL_SRC))
 
 MYLIB_DIR =	mylib/
-MYLIB_SRC =	ft_strcmp.c \
+MYLIB_SRC =	\
+	ft_strcmp.c \
+	ft_swap.c \
+	ft_heapsort.c
 MYLIB = $(addprefix $(MYLIB_DIR), $(MYLIB_SRC))
 
 SRC_DIR = srcs/

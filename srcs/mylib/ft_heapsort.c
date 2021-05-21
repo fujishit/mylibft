@@ -1,28 +1,38 @@
-#include <stdio.h>
+#include "mylib.h"
 
-void ft_swap(int *a, int *b);
-
-void print_list(int *array, size_t len)
+static void	heap_make(int *array, int first, int len)
 {
+	int	parent;
+	int	child;
+
+	parent = first;
+	child = (parent * 2) + 1;
+	while (child < len)
+	{
+		if (child < len - 1 && array[child] < array[child + 1])
+			child++;
+		if (array[child] <= array[parent])
+			break ;
+		ft_swap(&array[parent], &array[child]);
+		parent = child;
+		child = (parent * 2) + 1;
+	}
 }
 
-void heap_make(int array[], size_t first, size_t len)
+void	heap_sort(int *array, int len)
 {
-}
+	int	first;
 
-void heap_sort(int array[], size_t array_size)
-{
-	size_t	i;
-
-	i =
-	while ()
-}
-
-int main(void)
-{
-	int array[13] = {12, 2, 1, 8, 5, 4, 7, 9, 10, 6, 3, 99};
-
-	heap_sort(array, 12);
-	print_list(array, 13);
-	return 0;
+	first = (len - 2) / 2;
+	while (first >= 0)
+	{
+		heap_make(array, first, len);
+		first--;
+	}
+	while (len > 0)
+	{
+		len--;
+		ft_swap(&array[0], &array[len]);
+		heap_make(array, 0, len);
+	}
 }
