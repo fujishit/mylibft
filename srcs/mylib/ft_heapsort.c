@@ -19,7 +19,7 @@ static void	heap_make(int *array, int first, int len)
 	}
 }
 
-void	heap_sort(int *array, int len)
+void	ft_heapsort(int *array, int len)
 {
 	int	first;
 
