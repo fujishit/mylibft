@@ -1,5 +1,5 @@
 #include "libft.h"
-
+#include <stdio.h>
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*ret;
@@ -11,18 +11,18 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	{
 		ret = (char *)malloc(1);
 		if (ret == NULL)
-			return (0);
+			return (NULL);
 		ret[0] = '\0';
 		return (ret);
 	}
 	if (ft_strlen(s + start) < len)
 		len = ft_strlen(s + start);
-	ret = (char *)malloc((len + 1) * sizeof(char));
+	ret = (char *)malloc((size_t)(len + 1) * sizeof(char));
 	if (ret == NULL)
-		return (0);
+		return (NULL);
 	i = 0;
 	ret[i] = s[start + i];
-	while (i++ < len)
+	while (++i < len)
 		ret[i] = s[start + i];
 	ret[i] = '\0';
 	return (ret);
